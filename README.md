@@ -15,13 +15,11 @@ Este projeto foi desenvolvido como parte da Avaliação G1 da disciplina de Dese
   - Imagem ampliada
   - Preço unitário
   - Quantidade ajustável
-- Produtos exibidos em ordem alfabética
 
 ✔️ 2. Filtro de Produtos por Categoria (1,5 ponto)
 
 - Extração dinâmica de categorias a partir dos dados
 - Filtro por categoria com atualização automática da lista
-- Remoção do filtro clicando novamente na categoria
 - Sem recarregamento da página
 
 ✔️ 4. Seleção e Exibição do Método de Pagamento (1,5 ponto)
