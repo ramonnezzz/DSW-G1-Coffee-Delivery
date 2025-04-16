@@ -22,19 +22,16 @@ interface Coffee {
 export function Home() {
   const theme = useTheme();
   const [coffees, setCoffees] = useState<Coffee[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchCoffees() {
       const response = await api('/coffees');
       setCoffees(response.data);
-
-      console.log({coffees: response.data});
     }
     fetchCoffees();
   }, []);
 
-
-  
   function incrementQuantity(id: string) {
     setCoffees((prevState) =>
       prevState.map((coffee) => {
@@ -45,8 +42,7 @@ export function Home() {
           }
         }
         return coffee
-      }
-      ),
+      }),
     );
   }
 
@@ -76,8 +72,12 @@ export function Home() {
         return coffee
       }),
     )
-    
   }
+
+  const filteredCoffees = coffees.filter((coffee) => {
+    if (!selectedCategory) return true;
+    return coffee.tags.includes(selectedCategory);
+  });
 
   return (
     <div>
@@ -143,35 +143,41 @@ export function Home() {
       </Hero>
 
       <CoffeeList>
-
         <h2>Nossos cafés</h2>
+
         <Navbar>
           <Radio
-            onClick={() => {}}
-            isSelected={false}
+            onClick={() => setSelectedCategory(null)}
+            isSelected={selectedCategory === null}
+            value=""
+          >
+            <span>Todos</span>
+          </Radio>
+          <Radio
+            onClick={() => setSelectedCategory("tradicional")}
+            isSelected={selectedCategory === "tradicional"}
             value="tradicional"
           >
             <span>Tradicional</span>
           </Radio>
           <Radio
-            onClick={() => {}}
-            isSelected={false}
+            onClick={() => setSelectedCategory("gelado")}
+            isSelected={selectedCategory === "gelado"}
             value="gelado"
           >
             <span>Gelado</span>
           </Radio>
           <Radio
-            onClick={() => {}}
-            isSelected={false}
+            onClick={() => setSelectedCategory("com leite")}
+            isSelected={selectedCategory === "com leite"}
             value="com leite"
           >
             <span>Com leite</span>
           </Radio>
         </Navbar>
 
-
         <div>
-          {coffees.map((coffee) => (
+          {filteredCoffees.map((coffee) => (
             <CoffeeCard
               key={coffee.id}
               coffee={coffee}
