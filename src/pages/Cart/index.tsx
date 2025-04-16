@@ -101,10 +101,10 @@ export function Cart() {
     switch (selectedPaymentMethod) {
       case 'credit':
         return subtotal * 0.385
-      case 'pix':
+      case 'debit':
         return subtotal * -0.185
-      case 'boleto':
-        return 1.0
+      case 'pix':
+        return 0
       default:
         return 0
     }
