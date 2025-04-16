@@ -100,9 +100,9 @@ export function Cart() {
   function getPaymentFee(subtotal: number) {
     switch (selectedPaymentMethod) {
       case 'credit':
-        return subtotal * 0.02
+        return subtotal * 0.385
       case 'pix':
-        return subtotal * -0.05
+        return subtotal * -0.185
       case 'boleto':
         return 1.0
       default:
@@ -194,17 +194,9 @@ export function Cart() {
                 value="pix"
               >
                 <Money size={16} />
-                <span>Pix</span>
+                <span>Pix ou dinheiro</span>
               </Radio>
 
-              <Radio
-                isSelected={selectedPaymentMethod === 'boleto'}
-                onClick={() => setSelectedPaymentMethod('boleto')}
-                value="boleto"
-              >
-                <Bank size={16} />
-                <span>Boleto</span>
-              </Radio>
             </div>
           </PaymentOptions>
         </PaymentContainer>
