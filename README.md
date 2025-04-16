@@ -22,6 +22,13 @@ Este projeto foi desenvolvido como parte da Avaliação G1 da disciplina de Dese
 - Filtro por categoria com atualização automática da lista
 - Sem recarregamento da página
 
+✔️ 3. Favoritar Produto (1,0 ponto)
+
+- Ícone de coração exibido nos cards
+- Quando favoritado: borda vermelha
+- Quando não favoritado: ícone branco
+- Alteração visual imediata
+
 ✔️ 4. Seleção e Exibição do Método de Pagamento (1,5 ponto)
 
 - Opções disponíveis:
