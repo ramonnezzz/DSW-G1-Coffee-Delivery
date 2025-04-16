@@ -1,27 +1,46 @@
-# React + TypeScript + Vite
+# ☕ Coffee Delivery - Prova G1 (Engenharia de Software - DSW)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como parte da Avaliação G1 da disciplina de Desenvolvimento de Software para Web (DSW), com foco na construção de uma aplicação web de delivery de café.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✅ Funcionalidades implementadas
 
-## Expanding the ESLint configuration
+✔️ 1. Listagem de Produtos (1,0 ponto)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Requisição GET à API via Axios configurado (src/serves/api.ts)
+- Listagem dinâmica dos cafés com:
+  - Nome
+  - Descrição
+  - Imagem ampliada
+  - Preço unitário
+  - Quantidade ajustável
+- Produtos exibidos em ordem alfabética
 
-- Configure the top-level `parserOptions` property like this:
+✔️ 2. Filtro de Produtos por Categoria (1,5 ponto)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- Extração dinâmica de categorias a partir dos dados
+- Filtro por categoria com atualização automática da lista
+- Remoção do filtro clicando novamente na categoria
+- Sem recarregamento da página
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+✔️ 4. Seleção e Exibição do Método de Pagamento (1,5 ponto)
+
+- Opções disponíveis:
+  - Cartão de Crédito: +3,85%
+  - Cartão de Débito: +1,85%
+  - Pix: 0%
+- Método armazenado no estado da aplicação
+- Título e taxa acessíveis em tempo real
+
+✔️ 5. Resumo Dinâmico do Pedido no Carrinho (1,0 ponto)
+
+- Exibição de:
+  - Nome e quantidade de cada produto
+  - Subtotal (quantidade × valor unitário)
+  - Juros do método de pagamento
+  - Total geral calculado dinamicamente
+  - Método de pagamento escolhido
+- Atualização automática ao alterar quantidade, remover itens ou trocar forma de pagamento
+
+---
